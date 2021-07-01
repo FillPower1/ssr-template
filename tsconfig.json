@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "importHelpers": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es5",
+        "noImplicitAny": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "alwaysStrict": true,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "jsx": "react",
+        "lib": ["dom", "es2019"],
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "typeRoots": ["./@types"],
+        "baseUrl": ".",
+        "paths": {
+            "@config/*": ["webpack/config/*"],
+            "@client/*": ["client/*"],
+            "@ducks/*": ["client/store/ducks/*"]
+        }
+    },
+    "exclude": ["node_modules"]
+}

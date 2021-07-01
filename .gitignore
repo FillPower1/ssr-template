@@ -7,7 +7,7 @@ Thumbs.db
 
 # Links
 .vscode/
+.idea
 
 # Block build and server
 /dist
-/server

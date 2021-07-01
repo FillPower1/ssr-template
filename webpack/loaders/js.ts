@@ -1,11 +1,11 @@
-module.exports = {
+export default {
     client: {
-        test: /\.js(x?)$/,
+        test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: { loader: 'babel-loader' }
     },
     server: {
-        test: /\.js(x?)$/,
+        test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: { loader: 'babel-loader' }
     }

@@ -1,0 +1,4 @@
+**/*.spec.ts
+/dist
+/node_modules
+@types
