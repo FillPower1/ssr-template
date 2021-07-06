@@ -26,7 +26,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         // Включает eslint-plugin-prettier и отображает более красивые ошибки как ошибки ESLint.
-        'plugin:prettier/recommended'
+        // 'plugin:prettier/recommended'
     ],
     // окружение в котором работает приложение
     env: {

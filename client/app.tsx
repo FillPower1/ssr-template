@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { counter } from '@ducks/counter/selectors';
@@ -23,4 +22,4 @@ const App = () => {
     );
 };
 
-export default hot(App);
+export default App;

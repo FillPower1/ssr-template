@@ -2,7 +2,7 @@
   "name": "ssr-template",
   "version": "0.0.0",
   "scripts": {
-    "start": "npm run dev && node ./dist/server.js",
+    "start": "cross-env NODE_ENV=development npm run dev && node ./dist/server.js",
     "dev": "rm -rf dist && cross-env NODE_ENV=development webpack",
     "build": "rm -rf dist && cross-env NODE_ENV=production webpack",
     "server": "node dist/server.js",
@@ -15,7 +15,6 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@hot-loader/react-dom": "17.0.1",
     "@loadable/component": "5.15.0",
     "@loadable/server": "5.15.0",
     "@reduxjs/toolkit": "1.6.0",
@@ -23,7 +22,6 @@
     "history": "4.9.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hot-loader": "4.13.0",
     "react-redux": "7.2.4",
     "react-router-dom": "5.2.0",
     "styled-components": "5.3.0"
@@ -38,6 +36,7 @@
     "@babel/register": "7.14.5",
     "@loadable/babel-plugin": "5.13.2",
     "@loadable/webpack-plugin": "5.15.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@types/compression": "1.7.0",
     "@types/cwd": "0.10.0",
     "@types/express": "4.17.12",
@@ -67,6 +66,7 @@
     "null-loader": "4.0.1",
     "prettier": "2.3.2",
     "react-helmet": "6.1.0",
+    "react-refresh": "0.10.0",
     "react-router": "5.2.0",
     "serialize-javascript": "6.0.0",
     "terser-webpack-plugin": "4.2.3",

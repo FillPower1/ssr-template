@@ -4,6 +4,7 @@ import LoadablePlugin from '@loadable/webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack from 'webpack';
+import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 import { DIST_DIR, CLIENT_DIR } from '../dir';
 import { ENVS, GLOBAL_ARGS } from '../env';
@@ -14,14 +15,13 @@ const { __DEV__, __PROD__ } = ENVS;
 export default {
     target: 'web',
     entry: [
-        __DEV__ && 'react-hot-loader/patch',
         __DEV__ && 'webpack-hot-middleware/client',
         CLIENT_DIR
     ].filter(Boolean),
     output: {
         path: path.join(DIST_DIR, 'static'),
         publicPath: '/static/',
-        filename: '[name]-[hash].js',
+        filename: __DEV__ ? 'main.js' : '[name]-[hash].js',
         hashDigestLength: 8
     },
     mode: __DEV__ ? 'development' : 'production',
@@ -30,12 +30,16 @@ export default {
     },
     resolve: {
         modules: ['src', 'node_modules'],
-        alias: { 'react-dom': '@hot-loader/react-dom' },
         extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
         plugins: [new TsconfigPathsPlugin()]
     },
     plugins: [
         __DEV__ && new webpack.HotModuleReplacementPlugin(),
+        __DEV__ && new ReactRefreshPlugin({
+            overlay: {
+                sockIntegration: 'whm'
+            }
+        }),
         new webpack.DefinePlugin(GLOBAL_ARGS),
         new LoadablePlugin()
     ].filter(Boolean),
